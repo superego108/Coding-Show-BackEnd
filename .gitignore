@@ -1,2 +1,7 @@
-/server/node_modules
+/server
 /README.md
+/server/models/user_model.js
+/server/models/comment_model.js
+!/server/controllers/project_controllers.js
+!/server/handlers/project_handlers.js
+!/server/models/project_model.js

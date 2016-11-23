@@ -29,7 +29,6 @@
 ###用户数据模型
 ```
 user_model {
-  _id: Schema.Types.ObjectId, //id
   username: String, //用户名
   nickname: String, //昵称  第三方登录时，存储第三方用户的昵称
   passwd: String, //密码
@@ -50,30 +49,29 @@ user_model {
 
 ```
 project_model {
-  _id: Schema.Types.ObjectId, //id
   uid: String, //上传的用户 id
   project_name: String, //项目名称
   description: String, //一句话描述
   detail: String, //简介
   imagePath: Array, //项目图片 字符串数组
   project_link: String, //链接
-  developers: Array,//开发者
-  star_count: { type: Number, default: 0 },//开发者人数
-  star_count: Number, //点赞数
-  star_users: Array, //点赞用户 存储用户id
-  status: Number, //可用/禁用
-  create_time: Date, //创建时间
-  mod_time: Date //最后修改时间
+  developers: { type: Array, default: [] },//开发者
+  developer_count: { type: Number, default: 0 },//开发者人数
+  star_count: { type: Number, default: 0 }, // 点赞数
+  star_users: { type: Array, default: [] }, // 点赞用户 存储用户id
+  status: { type: Number, default: 0 }, // 可用/禁用
+  create_time: String, // 创建时间
+  mod_time: String // 最后修改时间
 }
 ```
 ###开发者数据模型
 ```
 developer_model {
-  _id: Schema.Types.ObjectId, //id
   uid: String, // 用户id
   pid: String, // 参与项目id
   dev_skills: Array, // 开发技术栈
-  application_time: Date //申请时间
+  application_time: String, //申请时间
+  status: { type: Number, default: 0 } //审核状态
 }
 ```
 ###留言板数据模型 
@@ -87,7 +85,7 @@ developer_model {
 }
 ```
 ##api接口
-[*rap*](http://http://rap.taobao.org/org/group.do?plid=6302)
+[*rap*](http://rap.taobao.org/)
 目前版本0.0.0.26
 
 ##目录结构
